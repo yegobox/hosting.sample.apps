@@ -16,10 +16,10 @@ services:
         - "traefik.backend=box-be"
         - "traefik.frontend.rule=Host:test00501.yegobox.com"
     ports:
-      - "8080:5000"
+      - "8083:5000"
     volumes:
       - .:/app
     # environment:
     #   FLASK_ENV: development
-  redis:
-    image: "redis:alpine"
+#   redis:
+#     image: "redis:alpine"
