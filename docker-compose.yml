@@ -16,8 +16,8 @@ services:
     build: .
     labels:
         # - "traefik.backend=box-be"
-        - traefik.http.routers.web.rule=Host(`test00501.yegobox.com`) 
-        # - "traefik.frontend.rule=Host:test00501.yegobox.com"
+        # - traefik.http.routers.web.rule=Host(`test00501.yegobox.com`) 
+        - "traefik.frontend.rule=Host:test00501.yegobox.com"
         # - traefik.http.routers.web.tls=true
         # - traefik.http.routers.web.tls.certresolver=myresolver
     ports:
