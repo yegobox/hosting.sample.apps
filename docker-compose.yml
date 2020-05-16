@@ -1,17 +1,17 @@
-version: '3'
+version: "3"
 services:
-#   traefik:
-#     image: traefik:v2.2
-#     command: 
-#       - --entrypoints.web.address=:80
-#       - --providers.docker=true
-#       - --api.insecure 
-#     ports:
-#         - "8082:80"
-#         - "8081:8080"
-#         - "445:443"
-#     volumes:
-#         - /var/run/docker.sock:/var/run/docker.sock
+  #   traefik:
+  #     image: traefik:v2.2
+  #     command:
+  #       - --entrypoints.web.address=:80
+  #       - --providers.docker=true
+  #       - --api.insecure
+  #     ports:
+  #         - "8082:80"
+  #         - "8081:8080"
+  #         - "445:443"
+  #     volumes:
+  #         - /var/run/docker.sock:/var/run/docker.sock
   web:
     build: .
     # labels:
@@ -20,18 +20,18 @@ services:
       - "8083:8080"
     networks:
       webnet:
-         aliases:
-           - webnet
+        aliases:
+          - webnet
     deploy:
       placement:
         constraints: [node.role == worker]
       resources:
         limits:
-            cpus: '0.25'
-            memory: 512M
+          cpus: "0.25"
+          memory: 512M
         reservations:
-            cpus: '0.25'
-            memory: 256M
+          cpus: "0.25"
+          memory: 256M
       restart_policy:
         condition: on-failure
         delay: 5s
@@ -44,12 +44,12 @@ services:
         monitor: 60s
         max_failure_ratio: 0.3
 networks:
-    webnet:
-    # volumes:
-    #   - .:/usr/src/app
-    # environment:
-    #   FLASK_ENV: development
+  webnet:
+  # volumes:
+  #   - .:/usr/src/app
+  # environment:
+  #   FLASK_ENV: development
 #   redis:
 #     image: "redis:alpine"
 
-# docker stack deploy --compose-file docker-compose.yml webnet
+# docker stack deploy -c docker-compose.yml wepapp
