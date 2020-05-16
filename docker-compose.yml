@@ -19,6 +19,7 @@ services:
     ports:
       - "8081:8080"
     domainname: test00501.yegobox.com
+    hostname: test00501.yegobox.com
     # volumes:
     #   - .:/usr/src/app
     # environment:
