@@ -23,8 +23,8 @@ services:
         # - traefik.http.routers.web.tls.certresolver=myresolver
     ports:
       - "8083:5000"
-    volumes:
-      - .:/usr/src/app
+    # volumes:
+    #   - .:/usr/src/app
     # environment:
     #   FLASK_ENV: development
 #   redis:
