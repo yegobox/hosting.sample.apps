@@ -24,7 +24,7 @@ services:
     ports:
       - "8083:5000"
     volumes:
-      - .:/app
+      - .:/usr/src/app
     # environment:
     #   FLASK_ENV: development
 #   redis:
