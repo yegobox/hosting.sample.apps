@@ -2,10 +2,10 @@ version: '3'
 services:
   traefik:
     image: traefik:v2.2
-    command: 
-      - --entrypoints.web.address=:80
-      - --providers.docker=true
-      - --api.insecure # Don't do that in production
+    # command: 
+    #   - --entrypoints.web.address=:80
+    #   - --providers.docker=true
+    #   - --api.insecure # Don't do that in production
     ports:
         - "8082:80"
         - "8081:8080"
