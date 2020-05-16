@@ -1,8 +1,11 @@
 version: '3'
 services:
   traefik:
-    image: traefik
-    command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
+    image: traefik:v2.2
+    command: 
+      - --entrypoints.web.address=:80
+      - --providers.docker=true
+      - --api.insecure # Don't do that in production
     ports:
         - "8082:80"
         - "8081:8080"
@@ -13,8 +16,11 @@ services:
   web:
     build: .
     labels:
-        - "traefik.backend=box-be"
-        - "traefik.frontend.rule=Host:test00501.yegobox.com"
+        # - "traefik.backend=box-be"
+        - traefik.http.routers.web.rule=Host(`test00501.yegobox.com`) 
+        # - "traefik.frontend.rule=Host:test00501.yegobox.com"
+        # - traefik.http.routers.web.tls=true
+        # - traefik.http.routers.web.tls.certresolver=myresolver
     ports:
       - "8083:5000"
     volumes:
